@@ -101,6 +101,11 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
 */
 
+void first() 
+{
+
+}
+
 int main(int argc, char *argv[])
 {
     cout << "Hello World! \n";
