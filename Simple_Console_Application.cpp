@@ -5,7 +5,6 @@
 #include <vector>
 #include <stdio.h>
 
-using namespace std;
 
 // ==================== VARIABLE DECLARATIONS ====================
 
@@ -30,6 +29,7 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 <	Less than	x < y
 >=	Greater than or equal to	x >= y
 <=	Less than or equal to	x <= y
+&&  And also     a > b && c < d
 
 */
 
@@ -41,8 +41,7 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
     while ( i < 5 ) 
     {
-        cout << i << "\n";
-        i++;
+        printf("%i \n", i++);
     }
 
 */
@@ -53,7 +52,7 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
     for ( int i = 0; i < 5; i++ )
     {
-        cout << i << "\n";
+        printf("%i \n", i);
     }
 
 */
@@ -66,29 +65,29 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
     switch (day)
     {
-        case 1:
-            cout << "Monday";
-            break;
-        case 2:
-            cout << "Tuesday";
-            break;
-        case 3:
-            cout << "Wednesday";
-            break;
-        case 4:
-            cout << "Thursday";
-            break;
-        case 5:
-            cout << "Friday";
-            break;
-        case 6:
-            cout << "Saturday";
-            break;
-        case 7:
-            cout << "Sunday";
-            break;
-        default:
-            cout << "Invalid";
+    case 1:
+        printf("%s \n", "Monday");
+        break;
+    case 2:
+        printf("%s \n", "Tuesday");
+        break;
+    case 3:
+        printf("%s \n", "Wednesday");
+        break;
+    case 4:
+        printf("%s \n", "Thursday");
+        break;
+    case 5:
+        printf("%s \n", "Friday");
+        break;
+    case 6:
+        printf("%s \n", "Saturday");
+        break;
+    case 7:
+        printf("%s \n", "Sunday");
+        break;
+    default:
+        printf("%s \n", "Invalid");
     }
 
 */
@@ -101,12 +100,24 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
 */
 
-void first() 
-{
-
-}
+class classes{
+    public:
+        int x;
+        int y;
+    private:
+};
 
 int main(int argc, char *argv[])
 {
-    cout << "Hello World! \n";
+    char szText[] = "Hello World!";
+    char *pText = szText;
+
+    printf("%s \n", szText);
+    printf("%s \n", pText);
+
+    classes Obj;
+    printf("%i \n", Obj.x = 25);
+    printf("%i \n", Obj.y = 50);
+
+
 }
