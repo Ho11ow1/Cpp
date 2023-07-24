@@ -1,6 +1,6 @@
 // Import libraries
 
-#include <iostream>
+#include <cmath>
 #include <string>
 #include <vector>
 #include <stdio.h>
@@ -39,7 +39,7 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
     int i = 0;
 
-    while ( i < 5 ) 
+    while ( i < 5 )
     {
         printf("%i \n", i++);
     }
@@ -100,24 +100,55 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
 */
 
-class classes{
-    public:
-        int x;
-        int y;
-    private:
+void MySuperCoolFuncVector()
+{
+    std::vector<int> values = { 1, 2, 3, 4 };
+
+    for (int i = 0; i < values.size(); i++)
+    {
+        if (values[i] / 2 == 1)
+        {
+            printf("%s", "The given number increased by 1 = ");
+            printf("%i \n", values[i] += 1);
+        }
+        else if (values[i] / 2 != 1)
+        {
+            printf("%s \n", "This is an even number");
+        }
+    }
+
+
+}
+
+static void MySuperCoolFuncArray()
+{
+
+}
+
+class Inventory
+{
+public:
+    int dz;
+    int bp;
+    int cs;
+    int aeth;
+private:
 };
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     char szText[] = "Hello World!";
-    char *pText = szText;
+    char* pText = szText;
 
     printf("%s \n", szText);
     printf("%s \n", pText);
 
-    classes Obj;
-    printf("%i \n", Obj.x = 25);
-    printf("%i \n", Obj.y = 50);
+    /*Inventory inv;
+    printf("%i   ", inv.dz = 20000000);
+    printf("%i \n", inv.bp = 480576);
+    printf("%i   ", inv.cs = 50);
+    printf("%i   ", inv.aeth = 4087623);*/
 
+    MySuperCoolFuncVector();
 
 }
