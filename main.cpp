@@ -122,20 +122,7 @@ void MySuperCoolFuncVector()
 
 static void MySuperCoolFuncArray()
 {
-    std::array values = { 1, 2, 3, 4 };
-
-    for (int i = 0; i < values.size(); i++)
-    {
-        if (values[i] / 2 == 1)
-        {
-            printf("%s", "The given number increased by 1 = ");
-            printf("%i \n", values[i] += 1);
-        }
-        else if (values[i] / 2 != 1)
-        {
-            printf("%s \n", "This is an even number");
-        }
-    }
+    
 }
 
 class Inventory
@@ -163,5 +150,5 @@ int main(int argc, char* argv[])
     printf("%i   ", inv.aeth = 4087623);*/
 
     MySuperCoolFuncVector();
-
+    MySuperCoolFuncArray();
 }
