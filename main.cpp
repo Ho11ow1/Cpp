@@ -1,9 +1,4 @@
-// Import libraries
-
-#include <cmath>
-#include <string>
-#include <vector>
-#include <stdio.h>
+#include "src/headers/includes.h"
 
 
 // ==================== VARIABLE DECLARATIONS ====================
@@ -39,7 +34,7 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
     int i = 0;
 
-    while ( i < 5 )
+    while ( i < 5 ) 
     {
         printf("%i \n", i++);
     }
@@ -96,59 +91,111 @@ bool = states       bool Boolean = true;  { true = 1    false = 0 }
 
 /*
 
-    string cars[4] = { "VW", "VW", "VW", "VW" };
+    std::vector<int> name = { "1", "2", "3", "4" };
 
+    const char* name[number] = {"string", "string", "string", "string", "string"};
+    
 */
 
-void MySuperCoolFuncVector()
+static void oddeven()
 {
     std::vector<int> values = { 1, 2, 3, 4 };
 
+    printf("\n");
+
     for (int i = 0; i < values.size(); i++)
     {
-        if (values[i] / 2 == 1)
+        if (values[i] % 2 == 0)
         {
-            printf("%s", "The given number increased by 1 = ");
-            printf("%i \n", values[i] += 1);
+            printf("%s", "This is an even number: ");
+            printf("%i", values[i]);
+            printf("\n");
         }
-        else if (values[i] / 2 != 1)
+        else if(values[i] % 2 != 0)
         {
-            printf("%s \n", "This is an even number");
+            printf("%s", "This is an odd number: ");
+            printf("%i", values[i]);
+            printf("\n");
         }
     }
-
-
-}
-
-static void MySuperCoolFuncArray()
-{
     
+    printf("\n");
+
 }
 
-class Inventory
+static void nameprint()
 {
-public:
-    int dz;
-    int bp;
-    int cs;
-    int aeth;
-private:
-};
+    const char* names[5] = {"John", "Sam", "Elf", "Laffy", "Dumbo"};
 
-int main(int argc, char* argv[])
+    printf("\n");
+
+    for (int i = 0; i < 5; i++)
+    {
+        printf("%s", "Your name is: ");
+        printf("%s", names[i]);
+        printf("\n");
+    }
+}
+
+static void numprint()
 {
-    char szText[] = "Hello World!";
-    char* pText = szText;
+    std::vector<int> nums = { 1, 2, 3, 4, 5 };
+
+    printf("\n");
+
+    for (int i = 0; i < nums.size(); i++)
+    {
+        printf("%i \n", nums[i]);
+    }
+
+    printf("\n");
+
+}
+
+static void hashsort()
+{
+
+
+    printf("\n");
+}
+
+static void mapsort()
+{
+    // Initialize empty map
+    std::map<std::string, int> emptymap;
+    // Initalize map with items
+    std::map<int, std::string, std::greater<int>> name
+    {
+        {10, "Tshirt"}, {7, "Pants"}, {5, "Blouse" }
+    };
+
+    /*printf("%i \n", name["Tshirt"]);
+    printf("%i \n", name["Pants"]);
+    printf("%i \n", name["Blouse"]);*/
+
+    // Initializing iterator
+    std::map<int, std::string>::iterator iter;
+    // Iterator map syntax
+    for (iter = name.begin(); iter != name.end(); iter++)
+    {
+        std::cout << '\t' << iter->first << '\t' << iter->second << '\n';
+    }
+
+    printf("\n");
+}
+
+int main(int argc, char **argv[])
+{
+    /*char szText[] = "Hello World!";
+    char *pText = szText;
 
     printf("%s \n", szText);
-    printf("%s \n", pText);
+    printf("%s \n", pText, "\n");*/
 
-    /*Inventory inv;
-    printf("%i   ", inv.dz = 20000000);
-    printf("%i \n", inv.bp = 480576);
-    printf("%i   ", inv.cs = 50);
-    printf("%i   ", inv.aeth = 4087623);*/
-
-    MySuperCoolFuncVector();
-    MySuperCoolFuncArray();
+    
+    nameprint();
+    oddeven();
+    numprint();
+    hashsort();
+    mapsort();
 }
