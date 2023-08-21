@@ -1,0 +1,95 @@
+// ==================== VARIABLE DECLARATIONS ====================
+
+/*
+
+int = whole number    int num = 5;
+double = decimal      double num = 5.5;
+char = single character     char letter = 'a'; )
+string = text       string text = " Hollow ";
+bool = states       bool Boolean = true;  { true = 1    false = 0 }
+
+*/
+
+// ==================== ARITHMETIC OPERATORS ====================
+
+/*
+
+=   is      x=5
+==  Equal to	x == y
+!=	Not equal	x != y
+>	Greater than	x > y
+<	Less than	x < y
+>=	Greater than or equal to	x >= y
+<=	Less than or equal to	x <= y
+&&  And also     a > b && c < d
+
+*/
+
+// ==================== WHILE LOOP HOW TO ====================
+
+/*
+
+    int i = 0;
+
+    while ( i < 5 ) 
+    {
+        printf("%i \n", i++);
+    }
+
+*/
+
+// ==================== FOR LOOP HOW TO ====================
+
+/*
+
+    for ( int i = 0; i < 5; i++ )
+    {
+        printf("%i \n", i);
+    }
+
+*/
+
+// ==================== SWITCH CASE HOW TO ====================
+
+/*
+
+    int day = 4;
+
+    switch (day)
+    {
+    case 1:
+        printf("%s \n", "Monday");
+        break;
+    case 2:
+        printf("%s \n", "Tuesday");
+        break;
+    case 3:
+        printf("%s \n", "Wednesday");
+        break;
+    case 4:
+        printf("%s \n", "Thursday");
+        break;
+    case 5:
+        printf("%s \n", "Friday");
+        break;
+    case 6:
+        printf("%s \n", "Saturday");
+        break;
+    case 7:
+        printf("%s \n", "Sunday");
+        break;
+    default:
+        printf("%s \n", "Invalid");
+    }
+
+*/
+
+// ==================== CREATE AN ARRAY ====================
+
+/*
+
+    std::vector<int> name = { "1", "2", "3", "4" };
+
+    const char* name[number] = {"string", "string", "string", "string", "string"};
+    
+*/
