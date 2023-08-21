@@ -6,7 +6,7 @@ int = whole number    int num = 5;
 double = decimal      double num = 5.5;
 char = single character     char letter = 'a'; )
 string = text       string text = " Hollow ";
-bool = states       bool Boolean = true;  { true = 1    false = 0 }
+bool = state       bool Boolean = true;  { true = 1    false = 0 }
 
 */
 
