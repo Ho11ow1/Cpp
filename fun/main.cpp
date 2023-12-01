@@ -93,7 +93,7 @@ void overload(std::string topping1)
 	std::cout << "Here is your " << topping1 << " Pizza!\n";
 }
 
-class banker
+class banking
 {
 public:
 
@@ -147,7 +147,7 @@ public:
 		}
 	}
 
-	void banking()
+	void banking_program()
 	{
 
 		double balance = 110;
@@ -214,8 +214,8 @@ int main(int argc, const char **argv[])
 	overload("Pepperoni");
 	printf("%s", "\n");
 
-	banker bank;
-	bank.banking();
+	banking bank;
+	bank.banking_program();
 	printf("%s", "\n");
 
 
