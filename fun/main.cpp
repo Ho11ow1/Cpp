@@ -95,7 +95,8 @@ void overload(std::string topping1)
 
 class banking
 {
-public:
+private:
+	double balance = 123;
 
 	void ShowBalance(double balance)
 	{
@@ -147,14 +148,16 @@ public:
 		}
 	}
 
+public:
+
 	void banking_program()
 	{
 
-		double balance = 110;
 		int choice = 0;
 
 		do
 		{
+
 			printf("%s", "-------------------- BAKING PROGRAM --------------------\n\n");
 			printf("%s", "--------------------------------------------------------\n");
 			printf("%s", "Enter your choice:\n");
@@ -200,7 +203,7 @@ public:
 
 int main(int argc, const char **argv[])
 {
-	printf("%s", "\n");
+	/*printf("%s", "\n");
 
 	random_event();
 	printf("%s", "\n");
@@ -212,10 +215,11 @@ int main(int argc, const char **argv[])
 	printf("%s", "\n");
 
 	overload("Pepperoni");
-	printf("%s", "\n");
+	printf("%s", "\n");*/
 
-	banking bank;
-	bank.banking_program();
+	banking bank; // Invoke "banking" class and set name to "bank", initialize each element with "bank."
+	bank.banking_program(); // Call "banking_program()" from "banking" class
+
 	printf("%s", "\n");
 
 
