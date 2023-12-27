@@ -16,6 +16,7 @@ public:
     {
         int fileOption;
 
+        Retry:
         do
         {
             printf("%s", "==================== File Managing Program ====================\n\n");
@@ -29,11 +30,12 @@ public:
 
             scanf_s("%d", &fileOption);
 
-            if (fileOption < 1 || fileOption > 3)
+            if (fileOption < 1 || fileOption > 4)
             {
                 printf("%s", "Invalid input");
                 printf("%s", "\n");
-                exit;
+
+                goto Retry;
             }
 
             std::fflush;
@@ -59,7 +61,7 @@ public:
                 break;
 
             case 4:
-                exit;
+                printf("%s", "Closing\n");
                 break;
 
             default:
