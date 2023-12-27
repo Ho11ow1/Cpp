@@ -4,12 +4,16 @@
 #define main_H
 
 #include <iostream>
-#include <cmath>
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <fstream>
+
 #include <string>
 #include <vector>
 #include <map>
 #include <iterator>
-#include <stdio.h>
-#include <windows.h>
+
+#include <cmath>
 
 #endif
