@@ -22,7 +22,8 @@ public:
 
             printf("%s", "Option 1: Create a file\n");
             printf("%s", "Option 2: Edit a File\n");
-            printf("%s", "Option 3: Read a file\n\n");
+            printf("%s", "Option 3: Read a file\n");
+            printf("%s", "Option 4: Exit!\n\n");
 
             printf("%s", "Please input option choice: ");
 
@@ -57,11 +58,15 @@ public:
                 printf("%s", "\n");
                 break;
 
+            case 4:
+                exit;
+                break;
+
             default:
                 printf("%s", "Something went wrong! \n");
                 break;
             }
-        } while (fileOption != 0 && fileOption != 4);
+        } while (fileOption != 4);
     }
 
 private:
