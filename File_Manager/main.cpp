@@ -8,34 +8,34 @@
 class filing
 {
 private:
-    
+
 
 public:
-
     void useFile()
     {
-        int fileOption;
+        uint32_t fileOption{};
 
-        do
+    Retry:
+        while (fileOption != 4)
         {
             printf("%s", "==================== File Managing Program ====================\n\n");
 
             printf("%s", "Option 1: Create a file\n");
             printf("%s", "Option 2: Edit a File\n");
-            printf("%s", "Option 3: Read a file\n\n");
+            printf("%s", "Option 3: Read a file\n");
+            printf("%s", "Option 4: Exit!\n\n");
 
             printf("%s", "Please input option choice: ");
 
             scanf_s("%d", &fileOption);
 
-            if (fileOption < 1 || fileOption > 3)
+            if (fileOption < 1 || fileOption > 4)
             {
                 printf("%s", "Invalid input");
                 printf("%s", "\n");
-                exit;
-            }
 
-            std::fflush;
+                goto Retry;
+            }
 
             switch (fileOption)
             {
@@ -57,11 +57,15 @@ public:
                 printf("%s", "\n");
                 break;
 
+            case 4:
+                printf("%s", "Closing\n");
+                break;
+
             default:
                 printf("%s", "Something went wrong! \n");
                 break;
             }
-        } while (fileOption != 0 && fileOption != 4);
+        }
     }
 
 private:
@@ -90,7 +94,7 @@ private:
         std::getline(std::cin >> std::ws, FileName);
         // Open an Input & Output stream for "FileName"
         std::fstream file(FileName, std::ios::out | std::ios::in); // std::ifstream (Input, doesn't overwrite anything) didn't work, 
-                                                                  //  std::fstream (Input & Output, overwrites everything) works
+        //  std::fstream (Input & Output, overwrites everything) works
 
         if (file.is_open())
         {
@@ -134,7 +138,7 @@ private:
     }
 };
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     filing file;
 
@@ -142,4 +146,3 @@ int main(int argc, char *argv[])
 
     return 0;
 }
-
