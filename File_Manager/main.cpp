@@ -16,20 +16,21 @@ public:
         uint32_t fileOption{};
 
     Retry:
-        while (fileOption != 4)
+        while (fileOption != 5)
         {
             printf("%s", "==================== File Managing Program ====================\n\n");
 
             printf("%s", "Option 1: Create a file\n");
             printf("%s", "Option 2: Edit a File\n");
             printf("%s", "Option 3: Read a file\n");
-            printf("%s", "Option 4: Exit!\n\n");
+            printf("%s", "Option 4: Remove a file\n");
+            printf("%s", "Option 5: Exit!\n\n");
 
             printf("%s", "Please input option choice: ");
 
             scanf_s("%d", &fileOption);
 
-            if (fileOption < 1 || fileOption > 4)
+            if (fileOption < 1 || fileOption > 5)
             {
                 printf("%s", "Invalid input");
                 printf("%s", "\n");
@@ -58,6 +59,12 @@ public:
                 break;
 
             case 4:
+                printf("%s", "\n");
+                RemoveFile();
+                printf("%s", "\n");
+                break;
+
+            case 5:
                 printf("%s", "Closing\n");
                 break;
 
@@ -133,6 +140,20 @@ private:
         {
             printf("\n%s %s %s", " ' ", text.c_str(), " ' "); // Writing C code in C++ works, .c_str() is a null pointer reference
         }
+
+        readfile.close();
+
+        printf("%s", "\n");
+    }
+    // This works
+    void RemoveFile()
+    {
+        printf("%s", "Input the name and extension for your file: ");
+
+        std::string filename;
+        std::getline(std::cin >> std::ws, filename);
+
+        std::remove(filename.c_str());
 
         printf("%s", "\n");
     }
