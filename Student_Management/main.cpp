@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <fstream>
+#include <sstream>
 
 #include <string>
 #include <vector>
@@ -19,7 +20,6 @@ private:
     {
         std::string Name;
         std::string SurName;
-        char Gender;
         uint32_t Age;
     }Student;
 
@@ -42,7 +42,7 @@ private:
     bool DB_exist = db_exist(Student_DB) ? true : false;
 
     std::unordered_map<uint32_t, Student> students;
-    uint32_t Student_ID;
+    uint32_t Student_ID = 1;
 
     void filemanagement()
     {
@@ -101,13 +101,13 @@ public:
 
             case 2:
                 printf("%s", "\n");
-                EditStudent();
+                EditStudent(student.Name, student.SurName, student.Age);
                 printf("%s", "\n");
                 break;
 
             case 3:
                 printf("%s", "\n");
-                DisplayStudent(Student_ID);
+                DisplayStudent();
                 printf("%s", "\n");
                 break;
 
@@ -134,6 +134,7 @@ public:
     }
 
 private:
+    // This works
     void CreateStudent(const std::string &Name, const std::string &SurName, uint32_t Age)
     {
         Student student = { Name, SurName, Age };
@@ -172,13 +173,86 @@ private:
 
         file.close();
     }
-
-    void EditStudent()
+    // This kinda works
+    void EditStudent(const std::string& Name, const std::string& SurName, uint32_t Age)
     {
+        printf("%s", "Please input Student_ID: ");
+        scanf_s("%d", &Student_ID);
 
+        std::fstream file(Student_DB, std::ios::in | std::ios::out | std::ios::app);
+        if (file.is_open())
+        {
+            printf("%s", "File good");
+            std::string ID;
+            
+            /*std::stringstream stream;
+            stream << Student_ID;
+            std::string _Student_ID;
+            stream >> _Student_ID;*/
+
+            std::string _Student_ID = std::to_string(Student_ID);
+
+            for (uint32_t line = 0; std::getline(file, ID); line++)
+            {
+                if (ID.find(_Student_ID) != std::string::npos)
+                {
+                    printf("%s", "Found Student by ID\n");
+                    Retry:
+                    printf("%s", "What would you like to edit for the selected student?\n");
+
+                    printf("%s", "Option 1: Edit student Name\n");
+                    printf("%s", "Option 2: Edit student SurName\n");
+                    printf("%s", "Option 3: Edit student Age\n");
+                    printf("%s", "Option 4: Exit!\n\n");
+
+                    printf("%s", "Please input option choice: ");
+                    scanf_s("%d", &Edit_option, 0);
+
+                    if (Edit_option < 1 || Edit_option > 4)
+                    {
+                        printf("\n%s", "Invalid input\n");
+
+                        goto Retry;
+                    }
+
+                    Student student = { Name, SurName, Age };
+
+                    switch (Edit_option)
+                    {
+                    case 1:
+                        printf("%s", "\nInput new student Name: ");
+                        std::getline(std::cin >> std::ws, student.Name);
+                        file << "    Name: " << student.Name << "\n";
+                    break;
+
+                    case 2:
+                        printf("%s", "\nInput new student SurName: ");
+                        std::getline(std::cin >> std::ws, student.SurName);
+                        file << student.SurName;
+                    break;
+
+                    case 3:
+                        printf("%s", "\nInput new student Age: ");
+                        scanf_s("%d", &student.Age);
+                        file << student.Age;
+                    break;
+
+                    case 4:
+                        break;
+                    break;
+
+                    default:
+                        printf("%s", "Segmentation fault");
+                    break;
+                    }
+
+                    file.close();
+                }
+            }
+        }
     }
 
-    void DisplayStudent(uint32_t Student_ID)
+    void DisplayStudent()
     {
         
     }
