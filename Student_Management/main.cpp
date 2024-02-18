@@ -19,7 +19,7 @@ private:
     typedef struct
     {
         std::string Name;
-        std::string SurName;
+        std::string Surname;
         uint32_t Age;
     }Student;
 
@@ -86,7 +86,6 @@ public:
 
                 std::ofstream file(Student_DB);
                 file.close();
-                return;
             }*/
 
             Student student;
@@ -95,13 +94,13 @@ public:
             {
             case 1:
                 printf("%s", "\n");
-                CreateStudent(student.Name, student.SurName, student.Age);
+                CreateStudent(student.Name, student.Surname, student.Age);
                 printf("%s", "\n");
                 break;
 
             case 2:
                 printf("%s", "\n");
-                EditStudent(student.Name, student.SurName, student.Age);
+                EditStudent();
                 printf("%s", "\n");
                 break;
 
@@ -120,7 +119,7 @@ public:
             case 5:
                 system("cls");
                 goto Retry;
-            break;
+                break;
 
             case 6:
                 printf("%s", "Closing program...\n");
@@ -135,17 +134,17 @@ public:
 
 private:
     // This works
-    void CreateStudent(const std::string &Name, const std::string &SurName, uint32_t Age)
+    void CreateStudent(std::string& Name, std::string& Surname, uint32_t Age)
     {
-        Student student = { Name, SurName, Age };
+        Student student = { Name, Surname, Age };
 
         printf("%s", "Please input Student Name: ");
         std::getline(std::cin >> std::ws, student.Name);
 
         printf("%s", "Please input Student SurName: ");
-        std::getline(std::cin >> std::ws, student.SurName);
+        std::getline(std::cin >> std::ws, student.Surname);
 
-        Retry:
+    Retry:
         printf("%s", "Please input Student Age: ");
         scanf_s("%d", &student.Age, 1);
 
@@ -158,7 +157,7 @@ private:
 
         printf("%s%d", "\nCreated student with ID: ", Student_ID);
         printf("%s%s", "\nCreated student with Name: ", student.Name.c_str());
-        printf("%s%s", "\nCreated student with SurName: ", student.SurName.c_str());
+        printf("%s%s", "\nCreated student with SurName: ", student.Surname.c_str());
         printf("%s%d%s", "\nCreated student with Age: ", student.Age, "\n");
 
         std::fstream file(Student_DB, std::ios::out | std::ios::app);
@@ -166,7 +165,7 @@ private:
         {
             file << "ID: " << Student_ID << "\n" << "{" << "\n";
             file << "    Name: " << student.Name << "\n";
-            file << "    SurName: " << student.SurName << "\n";
+            file << "    Surname: " << student.Surname << "\n";
             file << "    Age: " << student.Age << "\n" << "}" << "\n" << "\n";
         }
         Student_ID++;
@@ -174,98 +173,90 @@ private:
         file.close();
     }
     // This kinda works
-    void EditStudent(const std::string& Name, const std::string& SurName, uint32_t Age)
+    void EditStudent()
     {
         printf("%s", "Please input Student_ID: ");
         scanf_s("%d", &Student_ID);
 
-        std::fstream file(Student_DB, std::ios::in | std::ios::out | std::ios::app);
+        std::fstream file(Student_DB, std::ios::in | std::ios::out);
+
         if (file.is_open())
         {
-            printf("%s", "File good");
-            std::string ID;
-            
-            /*std::stringstream stream;
-            stream << Student_ID;
-            std::string _Student_ID;
-            stream >> _Student_ID;*/
+            std::string line;
+            bool foundID = false;
+            std::streampos idPosition;
 
-            std::string _Student_ID = std::to_string(Student_ID);
-
-            for (uint32_t line = 0; std::getline(file, ID); line++)
+            while (std::getline(file, line))
             {
-                if (ID.find(_Student_ID) != std::string::npos)
+                if (line.find("ID: " + std::to_string(Student_ID)) != std::string::npos)
                 {
-                    printf("%s", "Found Student by ID\n");
-                    Retry:
-                    printf("%s", "What would you like to edit for the selected student?\n");
-
-                    printf("%s", "Option 1: Edit student Name\n");
-                    printf("%s", "Option 2: Edit student SurName\n");
-                    printf("%s", "Option 3: Edit student Age\n");
-                    printf("%s", "Option 4: Exit!\n\n");
-
-                    printf("%s", "Please input option choice: ");
-                    scanf_s("%d", &Edit_option, 0);
-
-                    if (Edit_option < 1 || Edit_option > 4)
-                    {
-                        printf("\n%s", "Invalid input\n");
-
-                        goto Retry;
-                    }
-
-                    Student student = { Name, SurName, Age };
-
-                    switch (Edit_option)
-                    {
-                    case 1:
-                        printf("%s", "\nInput new student Name: ");
-                        std::getline(std::cin >> std::ws, student.Name);
-                        file << "    Name: " << student.Name << "\n";
+                    foundID = true;
+                    idPosition = file.tellg();
+                }
+                if (foundID)
+                {
+                    file.seekp(idPosition);
+                    file << "{\n";
+                    file << "    Name: " << "Ab" << "\n";
+                    file << "    Surname: " << "Ba" << "\n";
+                    file << "    Age: " << "22" << "\n" << "}" << "\n\n";
                     break;
-
-                    case 2:
-                        printf("%s", "\nInput new student SurName: ");
-                        std::getline(std::cin >> std::ws, student.SurName);
-                        file << student.SurName;
-                    break;
-
-                    case 3:
-                        printf("%s", "\nInput new student Age: ");
-                        scanf_s("%d", &student.Age);
-                        file << student.Age;
-                    break;
-
-                    case 4:
-                        break;
-                    break;
-
-                    default:
-                        printf("%s", "Segmentation fault");
-                    break;
-                    }
-
-                    file.close();
                 }
             }
         }
+        file.close();
     }
-
+    // This works
     void DisplayStudent()
     {
-        
+        printf("%s", "Please input Student_ID: ");
+        scanf_s("%d", &Student_ID);
+
+        std::fstream file(Student_DB, std::ios::in | std::ios::out);
+
+        if (file.is_open())
+        {
+            std::string line;
+            bool foundID = false;
+            std::streampos idPosition;
+
+            while (std::getline(file, line))
+            {
+                if (line.find("ID: " + std::to_string(Student_ID)) != std::string::npos)
+                {
+                    foundID = true;
+                    idPosition = file.tellg();
+                }
+                if (foundID)
+                {
+                    printf("%s%d", "ID: ", Student_ID);
+                    file.seekp(idPosition);
+                    while (std::getline(file, line))
+                    {
+                        printf("\n%s", line.c_str());
+
+                        if (line.find("}") != std::string::npos)
+                        {
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+        }
+        file.close();
     }
 
     void RemoveStudent()
     {
-
+        // I don't wanna do this no more
     }
 };
 
-
-int main(int argc, char **argv[])
+int main(int argc, char** argv[])
 {
     creator c;
     c.Init();
+
+    return 0;
 }
