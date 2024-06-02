@@ -8,55 +8,8 @@ namespace Hollow
 {
     namespace vector_sort
     {
-        std::vector<uint32_t> sort(std::vector<uint32_t>& vec)
-        {
-            for (int i = 0; i < vec.size(); i++)
-            {
-                for (int j = i + 1; j < vec.size(); j++)
-                {
-                    if (vec[i] > vec[j])
-                    {
-                        std::swap(vec[i], vec[j]);
-                    }
-                }
-            }
-
-            return vec;
-        }
-
-        std::vector<int> sort(std::vector<int>& vec)
-        {
-            for (int i = 0; i < vec.size(); i++)
-            {
-                for (int j = i + 1; j < vec.size(); j++)
-                {
-                    if (vec[i] > vec[j])
-                    {
-                        std::swap(vec[i], vec[j]);
-                    }
-                }
-            }
-
-            return vec;
-        }
-
-        std::vector<double> sort(std::vector<double>& vec)
-        {
-            for (int i = 0; i < vec.size(); i++)
-            {
-                for (int j = i + 1; j < vec.size(); j++)
-                {
-                    if (vec[i] > vec[j])
-                    {
-                        std::swap(vec[i], vec[j]);
-                    }
-                }
-            }
-
-            return vec;
-        }
-
-        std::vector<char> sort(std::vector<char>& vec)
+        template<typename T>
+        std::vector<T> sort(std::vector<T>& vec)
         {
             for (int i = 0; i < vec.size(); i++)
             {
@@ -87,52 +40,8 @@ namespace Hollow
 
     namespace type_sort
     {
-        uint32_t* sort(uint32_t arr[], int size)
-        {
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = i + 1; j < size; j++)
-                {
-                    if (arr[i] > arr[j])
-                    {
-                        std::swap(arr[i], arr[j]);
-                    }
-                }
-            }
-            return arr;
-        }
-
-        int* sort(int arr[], int size)
-        {
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = i + 1; j < size; j++)
-                {
-                    if (arr[i] > arr[j])
-                    {
-                        std::swap(arr[i], arr[j]);
-                    }
-                }
-            }
-            return arr;
-        }
-
-        double* sort(double arr[], int size)
-        {
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = i + 1; j < size; j++)
-                {
-                    if (arr[i] > arr[j])
-                    {
-                        std::swap(arr[i], arr[j]);
-                    }
-                }
-            }
-            return arr;
-        }
-
-        char* sort(char arr[], int size)
+        template<typename T>
+        T* sort(T arr[], int &size)
         {
             for (int i = 0; i < size; i++)
             {
@@ -159,6 +68,7 @@ namespace Hollow
         for (int i = 0; i < size; i++)
         {
             printf("%c%s", arr[i], " ");
+            std::cout << arr[i] << " ";
         }
     }
     */
