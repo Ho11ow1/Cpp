@@ -25,5 +25,6 @@ public:
         {
             printf("%s", "This file does not exist \n");
         }
+        file.close();
     }
 };
