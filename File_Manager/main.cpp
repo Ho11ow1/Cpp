@@ -1,8 +1,8 @@
-#include "./src/Include/main.h"
-#include "./src/Include/create.h"
-#include "./src/Include/edit.h"
-#include "./src/Include/read.h"
-#include "./src/Include/remove.h"
+#include "./src/create.h"
+#include "./src/edit.h"
+#include "./src/read.h"
+#include "./src/remove.h"
+#include "./src/main.h"
 
 class filing
 {
