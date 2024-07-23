@@ -58,7 +58,7 @@ public:
                 break;
 
             case 5:
-                printf("%s", "Closing\n");
+                printf("%s", "Closing... \n");
                 break;
 
             default:
@@ -85,6 +85,7 @@ int main(int argc, char* argv[])
     filing file;
 
     file.useFile();
+
 
     return 0;
 }
