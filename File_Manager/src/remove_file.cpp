@@ -1,5 +1,6 @@
 #include "./remove.h"
-#include "./algorithm.h"
+
+namespace fs = std::filesystem;
 
 void Remove_File::RemoveFile()
 {
@@ -12,17 +13,12 @@ void Remove_File::RemoveFile()
     std::replace(m_Remove_File_Path.begin(), m_Remove_File_Path.end(), '\\', '/');
     std::string m_Remove_File_Absolute = m_Remove_File_Path + '/' + m_Remove_File_Name;
 
-    std::fstream file;
-    file.open(m_Remove_File_Absolute);
-
-    if (file.is_open())
+    if (fs::remove(m_Remove_File_Absolute))
     {
-        std::remove(m_Remove_File_Absolute.c_str());
-        printf("%s", "Removed file! \n");
+        std::cout << "File deleted successfully!\n";
     }
     else
     {
-        printf("%s", "This file does not exist \n");
+        std::cout << "Error deleting file.\n";
     }
-    file.close();
 }

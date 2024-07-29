@@ -1,5 +1,4 @@
 #include "./create.h"
-#include "./algorithm.h"
 
 void Create_File::CreateFile()
 {

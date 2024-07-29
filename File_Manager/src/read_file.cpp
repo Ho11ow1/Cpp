@@ -1,5 +1,4 @@
 #include "./read.h"
-#include "./algorithm.h"
 
 void Read_File::ReadFile()
 {

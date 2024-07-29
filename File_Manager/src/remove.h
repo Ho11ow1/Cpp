@@ -5,13 +5,15 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <filesystem>
+#include <algorithm>
 
 class Remove_File
 {
 private:
     std::string m_Remove_File_Name;
     std::string m_Remove_File_Path;
-    std::string m_Remove_File_Absolute = m_Remove_File_Path + "\\" + m_Remove_File_Name;
+    std::string m_Remove_File_Absolute;
 public:
     void RemoveFile();
 };

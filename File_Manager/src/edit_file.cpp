@@ -1,5 +1,4 @@
 #include "./edit.h"
-#include "./algorithm.h"
 
 void Edit_File::EditFile()
 {
@@ -32,24 +31,3 @@ void Edit_File::EditFile()
         }
     }
 }
-
-/*void Edit_File::m_input()
-{
-    printf("%s", "Input your desired data: ");
-    std::getline(std::cin >> std::ws, m_file_string);
-
-    std::fstream file;
-    file.open(m_Edit_File_Absolute);
-
-    if (file.is_open())
-    {
-        file << m_file_string;
-        file.close();
-        return;
-    }
-    else
-    {
-        printf("%s", "Something went wrong! \n\n");
-    }
-}
-*/
